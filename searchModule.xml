@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="search-module">
+    <test name="search-test-java">
+        <parameter name="oLaLa" value="java"/>
+        <classes>
+            <class name="com.searchmodule.tests.SearchModuleTest"></class>
+        </classes>
+    </test>
+    <test name="search-test-QA">
+        <parameter name="oLaLa" value="QA"/>
+        <classes>
+            <class name="com.searchmodule.tests.SearchModuleTest"></class>
+        </classes>
+    </test>
+</suite>

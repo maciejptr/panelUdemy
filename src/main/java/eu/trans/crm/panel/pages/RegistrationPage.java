@@ -45,13 +45,13 @@ public class RegistrationPage {
         this.lastNameTxt.sendKeys(lastName);
     }
 
-    public void enterUserCredentials(String userEmail, String password){
+    public void enterUserCredentials(String userEmail, String password) {
         this.userNameTxt.sendKeys(userEmail);
         this.passwordTxt.sendKeys(password);
         this.passwordConfirmationTxt.sendKeys(password);
     }
 
-    public void submit(){
+    public void submit() {
         this.submitButton.click();
     }
 }

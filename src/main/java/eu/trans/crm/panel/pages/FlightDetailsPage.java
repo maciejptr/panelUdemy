@@ -18,19 +18,19 @@ public class FlightDetailsPage {
     @FindBy(name = "findFlights")
     private WebElement continueButton;
 
-    public FlightDetailsPage(WebDriver driver){
+    public FlightDetailsPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 20);
         PageFactory.initElements(driver, this);
     }
 
-    public void selectPassengers(String noOfPassengers){
+    public void selectPassengers(String noOfPassengers) {
         this.wait.until(ExpectedConditions.elementToBeClickable(this.passangers));
         Select passengersSelect = new Select(this.passangers);
         passengersSelect.selectByValue(noOfPassengers);
     }
 
-    public void goToFindFlightsPage(){
+    public void goToFindFlightsPage() {
         this.continueButton.click();
     }
 }
