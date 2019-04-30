@@ -1,23 +1,13 @@
 package com.searchmodule.tests;
 
 import com.searchmodule.pages.SearchPage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import tests.BaseTest;
 
-public class SearchModuleTest {
-    private WebDriver driver;
+public class SearchModuleTest extends BaseTest {
     private String keyWord;
-
-    @BeforeTest
-    public void setUpDriver() {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        this.driver = new ChromeDriver();
-    }
 
     @Test
     @Parameters({"oLaLa"})
@@ -29,11 +19,6 @@ public class SearchModuleTest {
         searchPage.goToVideos();
         int size = searchPage.getResult();
         Assert.assertTrue(size > 0);
-    }
-
-    @AfterTest
-    public void quitDriver() {
-        this.driver.quit();
     }
 
 }

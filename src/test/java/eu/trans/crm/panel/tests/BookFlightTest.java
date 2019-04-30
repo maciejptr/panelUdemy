@@ -1,30 +1,20 @@
 package eu.trans.crm.panel.tests;
 
 import eu.trans.crm.panel.pages.*;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import tests.BaseTest;
 
-public class BookFlightTest {
-    private WebDriver driver;
+public class BookFlightTest extends BaseTest {
     private String numberOfPassengers;
     private String expectedPrice;
 
-    @BeforeTest
+    @Test
     @Parameters({"numberOfPassengers", "expectedPrice"})
-    public void setUpDriver(String numberOfPassengers, String expectedPrice) {
+    public void registrationPage(String numberOfPassengers, String expectedPrice) {
         this.numberOfPassengers = numberOfPassengers;
         this.expectedPrice = expectedPrice;
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        this.driver = new ChromeDriver();
-    }
-
-    @Test
-    public void registrationPage() {
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.goTo();
         registrationPage.enterUserDetails("selenium", "docker");
@@ -59,8 +49,4 @@ public class BookFlightTest {
         Assert.assertEquals(actualPrice, expectedPrice);
     }
 
-    @AfterTest
-    public void quitBrowser() {
-        this.driver.quit();
-    }
 }
