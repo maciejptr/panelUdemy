@@ -2,6 +2,7 @@ package eu.trans.crm.panel.tests;
 
 import eu.trans.crm.panel.pages.*;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import tests.BaseTest;
@@ -10,11 +11,16 @@ public class BookFlightTest extends BaseTest {
     private String numberOfPassengers;
     private String expectedPrice;
 
-    @Test
+    @BeforeTest
     @Parameters({"numberOfPassengers", "expectedPrice"})
-    public void registrationPage(String numberOfPassengers, String expectedPrice) {
+    public void setUpParameters(String numberOfPassengers, String expectedPrice) {
+        System.out.println("Uruchamiam setUpParameters z Bookflighttest");
         this.numberOfPassengers = numberOfPassengers;
         this.expectedPrice = expectedPrice;
+    }
+
+    @Test
+    public void registrationPage() {
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.goTo();
         registrationPage.enterUserDetails("selenium", "docker");
