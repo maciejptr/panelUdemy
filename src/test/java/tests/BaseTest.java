@@ -19,10 +19,12 @@ public class BaseTest {
         // HUB_HOST => localhost / 127.0.0.1 / hostname
         System.out.println("Uruchamiam BeforeTest z setUpDriver");
         String host = "localhost";
-        DesiredCapabilities dc = DesiredCapabilities.chrome();
+        DesiredCapabilities dc;
 
         if (System.getProperty("BROWSER") != null && System.getProperty("BROWSER").equalsIgnoreCase("firefox")) {
             dc = DesiredCapabilities.firefox();
+        }else {
+            dc= DesiredCapabilities.chrome();
         }
         if (System.getProperty("HUB_HOST") != null) {
             host = System.getProperty("HUB_HOST");

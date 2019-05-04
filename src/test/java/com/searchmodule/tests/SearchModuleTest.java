@@ -24,6 +24,7 @@ public class SearchModuleTest extends BaseTest {
         searchPage.doSearch(keyWord);
         searchPage.goToVideos();
         int size = searchPage.getResult();
+        System.out.println("I have found " + size + " videos");
         Assert.assertTrue(size > 0);
     }
 
