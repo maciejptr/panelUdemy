@@ -12,6 +12,7 @@ services:
       - HUB_HOST=hub
   firefox:
     image: selenium/node-firefox:3.14
+    shm_size: '1gb'
     depends_on:
       - hub
     environment:
@@ -19,11 +20,11 @@ services:
   search-module:
     image: crmtestaccount/book-flight-tests
     depends_on:
-      #chrome and firefox depend on hub, so I don't have to mention it
+      #chrome and firefox depend on hub, so I don't have to mention hub here
       - chrome
       - firefox
     environment:
-      - BROWSER=chrome
+      - BROWSER=firefox
       - HUB_HOST=hub
       - MODULE=search-module.xml
     volumes:
