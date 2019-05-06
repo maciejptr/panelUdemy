@@ -2,6 +2,7 @@ package com.searchmodule.tests;
 
 import com.searchmodule.pages.SearchPage;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import tests.BaseTest;
@@ -9,15 +10,21 @@ import tests.BaseTest;
 public class SearchModuleTest extends BaseTest {
     private String keyWord;
 
-    @Test
+    @BeforeTest
     @Parameters({"oLaLa"})
-    public void search(String oLaLa) {
+    public void setUpParameters(String oLaLa) {
+        System.out.println("Uruchamiam SetUpParameters z SearchModuleTest");
         this.keyWord = oLaLa;
+    }
+
+    @Test
+    public void search() {
         SearchPage searchPage = new SearchPage(driver);
         searchPage.goTo();
         searchPage.doSearch(keyWord);
         searchPage.goToVideos();
         int size = searchPage.getResult();
+        System.out.println("I have found " + size + " videos");
         Assert.assertTrue(size > 0);
     }
 

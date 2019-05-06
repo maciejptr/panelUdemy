@@ -20,7 +20,7 @@ public class SearchPage {
     @FindBy(id = "search_button_homepage")
     private WebElement searchButton;
 
-    @FindBy(linkText = "Wideo")
+    @FindBy(className = "js-zci-link--videos")
     private WebElement videoesLink;
 
     @FindBy(className = "tile--vid")
