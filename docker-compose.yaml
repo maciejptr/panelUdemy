@@ -18,7 +18,7 @@ services:
     environment:
       - HUB_HOST=hub
   search-module:
-    image: crmtestaccount/book-flight-tests
+    image: paneludemy/seleniumtests
     depends_on:
       #chrome and firefox depend on hub, so I don't have to mention hub here
       - chrome
@@ -30,7 +30,7 @@ services:
     volumes:
       - ./search-module-result:/usr/share/udemy/test-output
   book-flight-module:
-    image: crmtestaccount/book-flight-tests
+    image: paneludemy/seleniumtests
     depends_on:
       - chrome
       - firefox
