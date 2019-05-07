@@ -29,3 +29,14 @@ services:
       - MODULE=search-module.xml
     volumes:
       - ./search-module-result:/usr/share/udemy/test-output
+  book-flight-module:
+    image: crmtestaccount/book-flight-tests
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=chrome
+      - HUB_HOST=hub
+      - MODULE=book-flight-module.xml
+    volumes:
+      - ./book-flight-module-result:/usr/share/udemy/test-output
