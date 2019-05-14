@@ -3,7 +3,7 @@ mvn clean package -DskipTests
 java -cp panel-udemy.jar:panel-udemy-tests.jar:libs/* org.testng.TestNG ../search-module.xml ../book-flight-module.xml
 
 Budowanie obrazu dockera:
-'docker build -t=crmtestaccount/book-flight-tests .'
+'docker build -t=paneludemy/seleniumtests .'
 
 Eksploaracja image:
 docker run -it --entrypoint=/bin/sh crmtestaccount/book-flight-tests
